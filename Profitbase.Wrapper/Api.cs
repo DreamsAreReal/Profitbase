@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using Profitbase.Wrapper.Requests;
 
 namespace Profitbase.Wrapper
 {
@@ -19,9 +20,10 @@ namespace Profitbase.Wrapper
         }
 
 
-        public void GetAll(string login, string password)
+        public async void GetAll(string login, string password)
         {
-            return;
+            AuthorizationRequest authorization = new AuthorizationRequest(_client);
+            await authorization.Execute("","");
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Profitbase.Wrapper.Parsers;
 
 namespace Profitbase.Wrapper.Requests
 {
@@ -15,16 +16,15 @@ namespace Profitbase.Wrapper.Requests
             _client = client;
         }
 
-        public void Execute(string login, string password)
+        public async Task Execute(string login, string password)
         {
-
+            var csrfToken = await GetCsrfToken();
         }
 
         private async Task<string> GetCsrfToken()
         {
             var content = await _client.ExecuteGetRequest(Routes.LoginPage);
-
-
+            return new LoginPageToCsrfTokenParser().GetToken(content);
         }
 
     }
