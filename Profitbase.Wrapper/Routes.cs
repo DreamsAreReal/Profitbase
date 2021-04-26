@@ -11,5 +11,6 @@ namespace Profitbase.Wrapper
         public const string BaseUrl = "https://pb12307.profitbase.ru/";
 
         public const string LoginPage = BaseUrl + "login";
+        public const string LoginRequest = BaseUrl + "login_check";
     }
 }

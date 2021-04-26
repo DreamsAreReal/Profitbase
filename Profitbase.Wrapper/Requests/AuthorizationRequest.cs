@@ -19,6 +19,17 @@ namespace Profitbase.Wrapper.Requests
         public async Task Execute(string login, string password)
         {
             var csrfToken = await GetCsrfToken();
+
+            var parameters = new Dictionary<string, string>
+            {
+                {"_csrf_token", csrfToken},
+                {"_username", login },
+                {"_password", password },
+                {"_remember_me", "on" }
+            };
+
+            var answer = await _client.ExecutePostRequest(Routes.LoginRequest, parameters);
+            return;
         }
 
         private async Task<string> GetCsrfToken()
