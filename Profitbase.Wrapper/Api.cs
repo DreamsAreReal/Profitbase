@@ -9,6 +9,10 @@ namespace Profitbase.Wrapper
     {
         private Client _client;
 
+        /// <summary>
+        /// Create new API client.
+        /// </summary>
+        /// <param name="proxy">Need IPV4 Https proxy.</param>
         public Api(IWebProxy proxy = null)
         {
             _client = new Client();

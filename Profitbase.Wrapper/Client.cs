@@ -14,7 +14,7 @@ namespace Profitbase.Wrapper
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36";
 
         /// <summary>
-        /// Create new HttpClient
+        /// Create new HttpClient.
         /// </summary>
         /// <param name="proxy">Need IPV4 Https proxy.</param>
         public Client(IWebProxy proxy = null)
