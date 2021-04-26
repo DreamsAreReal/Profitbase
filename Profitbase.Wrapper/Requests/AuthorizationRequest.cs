@@ -15,5 +15,10 @@ namespace Profitbase.Wrapper.Requests
             _client = client;
         }
 
+        public void Execute()
+        {
+
+        }
+
     }
 }
