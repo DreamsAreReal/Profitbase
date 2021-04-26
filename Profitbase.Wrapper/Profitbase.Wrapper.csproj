@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Api.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="ErrorsFormSite\En.cs" />
+    <Compile Include="ErrorsFormSite\Ru.cs" />
     <Compile Include="Exceptions\CrsfTokenParseException.cs" />
     <Compile Include="IClient.cs" />
     <Compile Include="Parsers\LoginPageToCsrfTokenParser.cs" />
