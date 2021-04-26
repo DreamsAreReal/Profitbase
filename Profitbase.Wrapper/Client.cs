@@ -35,9 +35,27 @@ namespace Profitbase.Wrapper
             _client.DefaultRequestHeaders.Add(userAgentHeaderName, UserAgent);
         }
 
+        /// <summary>
+        /// Send get request.
+        /// </summary>
+        /// <param name="address">Address to send request.</param>
+        /// <returns>Answer from server.</returns>
         public async Task<string> ExecuteGetRequest(string address)
         {
             return await (await _client.GetAsync(address)).Content.ReadAsStringAsync();
+        }
+
+
+        /// <summary>
+        /// Send post request.
+        /// </summary>
+        /// <param name="address">Address to send request.</param>
+        /// <param name="parameters">Parameters to send with request.</param>
+        /// <returns>Answer from server.</returns>
+        public async Task<string> ExecutePostRequest(string address, Dictionary<string,string> parameters)
+        {
+            return await (await _client.PostAsync(address, new FormUrlEncodedContent(parameters))).Content
+                .ReadAsStringAsync();
         }
 
     }
