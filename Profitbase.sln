@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profitbase.Data", "Profitba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profitbase.Wrapper", "Profitbase.Wrapper\Profitbase.Wrapper.csproj", "{D3026562-A2FE-4E34-96AB-B2175018F25E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profitbase.Example", "Profitbase.Example\Profitbase.Example.csproj", "{45B88A2F-3CD2-4DE9-B3A4-22613D79871E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D3026562-A2FE-4E34-96AB-B2175018F25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3026562-A2FE-4E34-96AB-B2175018F25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3026562-A2FE-4E34-96AB-B2175018F25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B88A2F-3CD2-4DE9-B3A4-22613D79871E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B88A2F-3CD2-4DE9-B3A4-22613D79871E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B88A2F-3CD2-4DE9-B3A4-22613D79871E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B88A2F-3CD2-4DE9-B3A4-22613D79871E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
