@@ -44,6 +44,7 @@
     <Compile Include="Api.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Exceptions\CrsfTokenParseException.cs" />
+    <Compile Include="IClient.cs" />
     <Compile Include="Parsers\LoginPageToCsrfTokenParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AuthorizationRequest.cs" />

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Profitbase.Wrapper
 {
-    internal class Client
+
+    internal class Client : IClient
     {
         private readonly HttpClient _client;
 

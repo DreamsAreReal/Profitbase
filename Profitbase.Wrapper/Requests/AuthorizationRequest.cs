@@ -10,8 +10,8 @@ namespace Profitbase.Wrapper.Requests
 {
     internal class AuthorizationRequest
     {
-        private readonly Client _client;
-        public AuthorizationRequest(Client client)
+        private readonly IClient _client;
+        public AuthorizationRequest(IClient client)
         {
             _client = client;
         }
