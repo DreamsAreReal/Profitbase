@@ -12,6 +12,12 @@ namespace Profitbase.Wrapper.Parsers
     {
         private const string InputCrsfTokenNameInForm = "<input type=\"hidden\" name=\"_csrf_token\" value=\"(.*)\">";
 
+        /// <summary>
+        /// Parse csrf token from login page
+        /// https://pb12307.profitbase.ru/login
+        /// </summary>
+        /// <param name="page">The html from login page. https://pb12307.profitbase.ru/login.</param>
+        /// <returns>Csrf token</returns>
         public string GetToken(string page)
         {
 
