@@ -20,7 +20,7 @@ namespace Profitbase.Wrapper
         public Client(IWebProxy proxy = null)
         {
             var cookie = new CookieContainer();
-            var handler = new HttpClientHandler {UseCookies = true};
+            var handler = new HttpClientHandler { UseCookies = true };
 
             if (proxy != null)
             {
@@ -32,5 +32,8 @@ namespace Profitbase.Wrapper
             _client = new HttpClient(handler);
             _client.DefaultRequestHeaders.Add(userAgentHeaderName, UserAgent);
         }
+
+
+
     }
 }

@@ -47,5 +47,11 @@
     <Compile Include="ProfitbaseSection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Profitbase.Wrapper\Profitbase.Wrapper.csproj">
+      <Project>{d3026562-a2fe-4e34-96ab-b2175018f25e}</Project>
+      <Name>Profitbase.Wrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
