@@ -15,13 +15,15 @@ namespace Profitbase.Wrapper.Requests
             _client = client;
         }
 
-        public void Execute()
+        public void Execute(string login, string password)
         {
 
         }
 
-        private string GetCsrfToken()
+        private async Task<string> GetCsrfToken()
         {
+            var content = await _client.ExecuteGetRequest(Routes.LoginPage);
+
 
         }
 
