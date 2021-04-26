@@ -7,7 +7,15 @@ namespace Profitbase.Wrapper
 {
     public class Api
     {
-        public void GetAll(string login, string password, IWebProxy proxy = null)
+        private Client _client;
+
+        public Api(IWebProxy proxy = null)
+        {
+            _client = new Client();
+        }
+
+
+        public void GetAll(string login, string password)
         {
             return;
         }
