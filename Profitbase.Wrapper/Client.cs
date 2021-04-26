@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Profitbase.Wrapper
 {
@@ -33,7 +34,10 @@ namespace Profitbase.Wrapper
             _client.DefaultRequestHeaders.Add(userAgentHeaderName, UserAgent);
         }
 
-
+        public async Task<string> ExecuteGetRequest(string address)
+        {
+            return await (await _client.GetAsync(address)).Content.ReadAsStringAsync();
+        }
 
     }
 }

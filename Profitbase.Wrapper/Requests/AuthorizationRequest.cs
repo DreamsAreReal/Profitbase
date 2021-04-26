@@ -20,5 +20,10 @@ namespace Profitbase.Wrapper.Requests
 
         }
 
+        private string GetCsrfToken()
+        {
+
+        }
+
     }
 }
