@@ -2,31 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 using Profitbase.Wrapper.Exceptions;
 
 namespace Profitbase.Wrapper.Parsers
 {
     internal class LoginPageToCsrfTokenParser
     {
-        private const string InputCrsfTokenNameInForm = "input[name=\"_csrf_token\"]";
-        private const string AttributeValueName = "value";
+        private const string InputCrsfTokenNameInForm = "<input type=\"hidden\" name=\"_csrf_token\" value=\"(.*)\">";
 
         public string GetToken(string page)
         {
-            HtmlDocument htmlSnippet = new HtmlDocument();
-            htmlSnippet.LoadHtml(page);
 
 
-            var crsfTokenAttribute = htmlSnippet.DocumentNode.SelectSingleNode(InputCrsfTokenNameInForm).Attributes[AttributeValueName];
+            var crsfToken = new Regex(InputCrsfTokenNameInForm).Match(page)?.Groups[1]?.Value;
 
-            if (crsfTokenAttribute == null)
+            if (String.IsNullOrEmpty(crsfToken))
             {
                 throw new CrsfTokenParseException(page);
             }
 
-            return crsfTokenAttribute.Value;
+            return crsfToken;
 
         }
     }
