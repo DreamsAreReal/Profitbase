@@ -58,5 +58,9 @@ namespace Profitbase.Wrapper
                 .ReadAsStringAsync();
         }
 
+        public void Dispose()
+        {
+            _client?.Dispose();
+        }
     }
 }

@@ -7,9 +7,9 @@ using Profitbase.Wrapper.Requests;
 
 namespace Profitbase.Wrapper
 {
-    public class Api
+    public class Api : IDisposable
     {
-        private Client _client;
+        private readonly Client _client;
 
         /// <summary>
         /// Create new API client.
@@ -27,6 +27,11 @@ namespace Profitbase.Wrapper
             var data = await authorization.Execute(login,password);
             return;
             
+        }
+
+        public void Dispose()
+        {
+            _client?.Dispose();
         }
     }
 }
