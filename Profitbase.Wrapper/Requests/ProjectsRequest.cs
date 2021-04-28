@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Profitbase.Wrapper.Models;
+using Profitbase.Wrapper.Parsers;
 
 namespace Profitbase.Wrapper.Requests
 {
@@ -16,7 +17,12 @@ namespace Profitbase.Wrapper.Requests
         }
 
 
-        public async Task Execute(ApiDataModel apiData)
+        /// <summary>
+        /// Get list sections.
+        /// </summary>
+        /// <param name="apiData">Api data for user</param>
+        /// <returns>List sections</returns>
+        public async Task<List<SectionModel>> Execute(ApiDataModel apiData)
         {
             var data = new Dictionary<string, string>
             {
@@ -27,7 +33,8 @@ namespace Profitbase.Wrapper.Requests
             };
 
             var answer = await _client.ExecutePostRequest(Routes.ProjectsRequest, data);
-            return;
+            var sections = new ProjectsRequestParser().GetHouses(answer);
+            return sections;
             
         }
     }

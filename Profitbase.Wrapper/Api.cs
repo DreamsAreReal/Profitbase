@@ -26,7 +26,11 @@ namespace Profitbase.Wrapper
             AuthorizationRequest authorization = new AuthorizationRequest(_client);
             var apiData = await authorization.Execute(login,password);
             ProjectsRequest projectsRequest = new ProjectsRequest(_client);
-            await projectsRequest.Execute(apiData);
+            var houses = await projectsRequest.Execute(apiData);
+            for (int i = 0; i < houses.Count; i++)
+            {
+
+            }
             return;
             
         }
