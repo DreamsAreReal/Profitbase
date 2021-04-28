@@ -44,9 +44,9 @@ namespace Profitbase.Wrapper.Parsers
 
             return new ApiDataModel()
             {
-                ApiKey = WebUtility.HtmlDecode(apiKey),
-                UserApiKey = WebUtility.HtmlDecode(userApiKey),
-                Username = WebUtility.HtmlDecode(username)
+                ApiKey = Uri.UnescapeDataString(apiKey),
+                UserApiKey = Uri.UnescapeDataString(userApiKey),
+                Username = Uri.UnescapeDataString(username)
             };
         }
     }
