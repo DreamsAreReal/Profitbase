@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -43,9 +44,9 @@ namespace Profitbase.Wrapper.Parsers
 
             return new ApiDataModel()
             {
-                ApiKey = apiKey,
-                UserApiKey = userApiKey,
-                Username = username
+                ApiKey = WebUtility.HtmlDecode(apiKey),
+                UserApiKey = WebUtility.HtmlDecode(userApiKey),
+                Username = WebUtility.HtmlDecode(username)
             };
         }
     }
