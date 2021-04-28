@@ -29,13 +29,14 @@ namespace Profitbase.Wrapper.Requests
             };
 
             var answer = await _client.ExecutePostRequest(Routes.LoginRequest, parameters);
+            await new LoginRequestParseExceptions().CheckFailedAttempt(answer);
             return;
         }
 
         private async Task<string> GetCsrfToken()
         {
             var content = await _client.ExecuteGetRequest(Routes.LoginPage);
-            return new LoginPageToCsrfTokenParser().GetToken(content);
+            return await new LoginPageToCsrfTokenParser().GetToken(content);
         }
 
     }

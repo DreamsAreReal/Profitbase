@@ -11,7 +11,7 @@ namespace Profitbase.Wrapper.Parsers
 {
     internal class LoginPageToCsrfTokenParser
     {
-        private const string InputCrsfTokenName = "input[name='_csrf_token']";
+        private const string InputCrsfTokenCssSelector = "input[name='_csrf_token']";
         private const string AttributeName = "value";
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Profitbase.Wrapper.Parsers
 
             var parser = new HtmlParser();
             var document = await parser.ParseDocumentAsync(page);
-            var csrfNode = document?.QuerySelector(InputCrsfTokenName);
+            var csrfNode = document?.QuerySelector(InputCrsfTokenCssSelector);
             if (csrfNode==null)
             {
                 throw new CrsfTokenParseException(page);
