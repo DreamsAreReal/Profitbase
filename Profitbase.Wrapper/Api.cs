@@ -24,7 +24,9 @@ namespace Profitbase.Wrapper
         public async Task GetAllAsync(string login, string password)
         {
             AuthorizationRequest authorization = new AuthorizationRequest(_client);
-            await authorization.Execute(login,password);
+            var data = await authorization.Execute(login,password);
+            return;
+            
         }
     }
 }

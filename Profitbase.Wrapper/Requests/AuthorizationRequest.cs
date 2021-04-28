@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Profitbase.Wrapper.Models;
 using Profitbase.Wrapper.Parsers;
 
 namespace Profitbase.Wrapper.Requests
@@ -16,7 +17,7 @@ namespace Profitbase.Wrapper.Requests
             _client = client;
         }
 
-        public async Task Execute(string login, string password)
+        public async Task<ApiDataModel> Execute(string login, string password)
         {
             var csrfToken = await GetCsrfToken();
 
@@ -30,13 +31,9 @@ namespace Profitbase.Wrapper.Requests
 
             var answer = await _client.ExecutePostRequest(Routes.LoginRequest, parameters);
             await new LoginRequestParseExceptions().CheckFailedAttempt(answer);
-            return;
+            return new LoginRequestParseApiData().GetData(answer);
         }
 
-        private async Task<string> GetApiData(string page)
-        {
-
-        }
 
         private async Task<string> GetCsrfToken()
         {
