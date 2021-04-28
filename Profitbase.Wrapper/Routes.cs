@@ -14,5 +14,6 @@ namespace Profitbase.Wrapper
 
         public const string LoginPage = BaseUrl + "login";
         public const string LoginRequest = BaseUrl + "login_check";
+        public const string ProjectsRequest = BaseUrl + "agent/a/api/board/projects";
     }
 }

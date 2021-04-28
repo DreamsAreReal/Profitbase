@@ -18,7 +18,17 @@ namespace Profitbase.Wrapper.Requests
 
         public async Task Execute(ApiDataModel apiData)
         {
-            var data 
+            var data = new Dictionary<string, string>
+            {
+                {"pb_api_key", apiData.ApiKey},
+                {"pb_subdomain", Routes.SubDomain},
+                {"pb_user_api_key", apiData.UserApiKey},
+                {"pb_username", apiData.Username}
+            };
+
+            var answer = await _client.ExecutePostRequest(Routes.ProjectsRequest, data);
+            return;
+            
         }
     }
 }
