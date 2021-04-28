@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AngleSharp.Html.Parser;
 using Profitbase.Wrapper.ErrorsFormSite;
+using Profitbase.Wrapper.Exceptions;
 
 namespace Profitbase.Wrapper.Parsers
 {
@@ -20,9 +21,9 @@ namespace Profitbase.Wrapper.Parsers
                 return true;
 
             if (errorMessageNode.InnerHtml.Trim() == En.CookiesHasDisabled)
-                return false;
+                throw new CookieHasDisabledException();
             if (errorMessageNode.InnerHtml.Trim() == Ru.LoginIncorrect)
-                return false; 
+                throw new LoginIncorrectException();
 
             return true;
 

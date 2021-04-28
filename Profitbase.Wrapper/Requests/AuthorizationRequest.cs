@@ -33,6 +33,11 @@ namespace Profitbase.Wrapper.Requests
             return;
         }
 
+        private async Task<string> GetApiData(string page)
+        {
+
+        }
+
         private async Task<string> GetCsrfToken()
         {
             var content = await _client.ExecuteGetRequest(Routes.LoginPage);

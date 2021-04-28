@@ -54,8 +54,12 @@
     <Compile Include="Client.cs" />
     <Compile Include="ErrorsFormSite\En.cs" />
     <Compile Include="ErrorsFormSite\Ru.cs" />
+    <Compile Include="Exceptions\ApiDataParseException.cs" />
+    <Compile Include="Exceptions\CookieHasDisabledException.cs" />
     <Compile Include="Exceptions\CrsfTokenParseException.cs" />
+    <Compile Include="Exceptions\LoginIncorrectException.cs" />
     <Compile Include="IClient.cs" />
+    <Compile Include="Parsers\LoginRequestParseApiData.cs" />
     <Compile Include="Parsers\LoginPageToCsrfTokenParser.cs" />
     <Compile Include="Parsers\LoginRequestParseExceptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
