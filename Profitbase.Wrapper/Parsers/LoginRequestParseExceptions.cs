@@ -12,6 +12,12 @@ namespace Profitbase.Wrapper.Parsers
     internal class LoginRequestParseExceptions
     {
         private const string ErrorMessageCssSelector = "div.help-block.help-block_error";
+
+        /// <summary>
+        /// Checking failed login attempt
+        /// </summary>
+        /// <param name="page">Page from login request</param>
+        /// <returns>Returns status</returns>
         public async Task<bool> CheckFailedAttempt(string page)
         {
             var parser = new HtmlParser();

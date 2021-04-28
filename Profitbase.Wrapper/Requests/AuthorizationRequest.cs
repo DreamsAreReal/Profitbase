@@ -17,6 +17,12 @@ namespace Profitbase.Wrapper.Requests
             _client = client;
         }
 
+        /// <summary>
+        /// Try auth to service
+        /// </summary>
+        /// <param name="login">Login for user</param>
+        /// <param name="password">Password for user</param>
+        /// <returns>Data from service. Includes api keys.</returns>
         public async Task<ApiDataModel> Execute(string login, string password)
         {
             var csrfToken = await GetCsrfToken();
@@ -35,6 +41,10 @@ namespace Profitbase.Wrapper.Requests
         }
 
 
+        /// <summary>
+        /// Need to parse csrf token from login page
+        /// </summary>
+        /// <returns>Html include csrf token</returns>
         private async Task<string> GetCsrfToken()
         {
             var content = await _client.ExecuteGetRequest(Routes.LoginPage);

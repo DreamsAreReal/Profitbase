@@ -12,6 +12,12 @@ namespace Profitbase.Wrapper.Parsers
     internal class LoginRequestParseApiData
     {
         private const string IframeDataPattern = "src=\"\\/\\/widget\\.profitbase\\.ru\\?(.*)\"";
+
+        /// <summary>
+        /// Parse api data from iframe
+        /// </summary>
+        /// <param name="page">Main page, after login page</param>
+        /// <returns>Api data includes api keys</returns>
         public ApiDataModel GetData(string page)
         {
             var data = new Regex(IframeDataPattern).Match(page)?.Groups[1]?.Value;
