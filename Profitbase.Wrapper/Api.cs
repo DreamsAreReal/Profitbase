@@ -9,7 +9,7 @@ namespace Profitbase.Wrapper
 {
     public class Api : IDisposable
     {
-        private readonly Client _client;
+        private readonly IClient _client;
 
         /// <summary>
         /// Create new API client.
