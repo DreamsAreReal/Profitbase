@@ -13,6 +13,7 @@ namespace Profitbase.Example
         {
             Api api = new Api();
             var data = api.GetAllAsync("profitb5577@gmail.com", "qwerty147").Result;
+            return;
         }
     }
 }

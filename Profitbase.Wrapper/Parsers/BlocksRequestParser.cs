@@ -33,16 +33,17 @@ namespace Profitbase.Wrapper.Parsers
                     {
                         if (project != null)
                         {
-                            for (int i = 0; i < jsonObj?["response"]?["sections"].Children().Count(); i++)
+                            for (int i = 0; i < jsonObj?["response"]?["sections"]?.Children().Count(); i++)
                             {
-                                if (jsonObj?["response"]?["sections"][i] != null)
+                                if (jsonObj?["response"]?["sections"]?[i] != null && jsonObj?["response"]?["sections"][i]["floors"]!=null)
                                 {
                                     foreach (var floor in jsonObj?["response"]?["sections"][i]["floors"])
                                     {
-                                        if (floor != null)
+                                        if (floor != null && floor["properties"]!=null)
                                         {
                                             foreach (var block in floor["properties"])
                                             {
+
                                                 string number;
                                                 string address;
                                                 string sectionName;
@@ -52,25 +53,27 @@ namespace Profitbase.Wrapper.Parsers
                                                 string type;
                                                 var status = BlockStatus.EMPTY;
 
+                                        
+
                                                 if (block["id"] != null
-                                                && int.TryParse(block["id"].ToString(), out var id)
-                                                && block["number"] != null
-                                                && block["address"] != null
-                                                && block["floor_number"] != null
-                                                && int.TryParse(block["floor_number"].ToString(), out var floorNumber)
-                                                && block["section_name"] != null
-                                                && jsonObj?["response"]?["full_name"] != null
-                                                && jsonObj?["response"]?["project_name"] != null
-                                                && block["rooms"]!=null
-                                                && int.TryParse(block["rooms"].ToString(), out var roomsCount)
-                                                && block["area"] != null
-                                                && double.TryParse(block["area"].ToString(), out var area)
-                                                && block["price_meter"] != null
-                                                && int.TryParse(block["price_meter"].ToString(), out var priceMeter)
-                                                && block["price"] != null
-                                                && int.TryParse(block["price"].ToString(), out var price)
-                                                && block["property_type_name"] != null
-                                                && block["apartment_status_key"] != null
+                                                    && int.TryParse(block["id"].ToString(), out var id)
+                                                    && block["number"] != null
+                                                    && block["address"] != null
+                                                    && block["floor_number"] != null
+                                                    && int.TryParse(block["floor_number"].ToString(), out var floorNumber)
+                                                    && block["section_name"] != null
+                                                    && jsonObj?["response"]?["full_name"] != null
+                                                    && jsonObj?["response"]?["project_name"] != null
+                                                    && block["rooms"]!=null
+                                                    && int.TryParse(block["rooms"].ToString(), out var roomsCount)
+                                                    && block["area"] != null
+                                                    && double.TryParse(block["area"].ToString().Replace('.',','), out var area)
+                                                    && block["price_meter"] != null
+                                                    && int.TryParse(block["price_meter"].ToString(), out var priceMeter)
+                                                    && block["price"] != null
+                                                    && int.TryParse(block["price"].ToString(), out var price)
+                                                    && block["property_type_name"] != null
+                                                    && block["apartment_status_key"] != null
                                                 )
                                                 {
                                                     number = block["number"]?.ToString();
@@ -92,14 +95,17 @@ namespace Profitbase.Wrapper.Parsers
                                                     continue;
                                                 }
 
-                                                try
+
+                                                if (block["layout"]!=null && block["layout"].Children().Any())
                                                 {
-                                                    layoutUrl = block["layout"]?["url"].ToString();
+                                                    layoutUrl = block["layout"]?["url"]?.ToString();
+                                                    
                                                 }
-                                                catch
+                                                else
                                                 {
-                                                    layoutUrl = "";
+                                                    layoutUrl = string.Empty;
                                                 }
+                                               
 
                                                 blocks.Add(new BlockModel
                                                 {

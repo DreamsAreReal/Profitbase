@@ -34,7 +34,7 @@ namespace Profitbase.Data
                         case BlockStatus.BOOKED:
                             status = ProfitbaseBlockStatus.Blocked;
                             break;
-                        case BlockStatus.INSTOCK:
+                        case BlockStatus.AVAILABLE:
                             status = ProfitbaseBlockStatus.InStock;
                             break;
                         case BlockStatus.SOLD:

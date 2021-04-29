@@ -10,7 +10,7 @@ namespace Profitbase.Wrapper.Enums
     {   
         SOLD,
         BOOKED,
-        INSTOCK,
+        AVAILABLE,
         EMPTY
     }
 }
