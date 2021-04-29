@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Api.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Enums\BlockStatus.cs" />
     <Compile Include="ErrorsFormSite\En.cs" />
     <Compile Include="ErrorsFormSite\Ru.cs" />
     <Compile Include="Exceptions\ApiDataParseException.cs" />
@@ -63,7 +64,9 @@
     <Compile Include="Exceptions\LoginIncorrectException.cs" />
     <Compile Include="IClient.cs" />
     <Compile Include="Models\ApiDataModel.cs" />
+    <Compile Include="Models\BlockModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
+    <Compile Include="Parsers\BlocksRequestParser.cs" />
     <Compile Include="Parsers\LoginRequestParseApiData.cs" />
     <Compile Include="Parsers\LoginPageToCsrfTokenParser.cs" />
     <Compile Include="Parsers\LoginRequestParseExceptions.cs" />

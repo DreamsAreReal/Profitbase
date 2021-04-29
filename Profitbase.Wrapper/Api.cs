@@ -29,7 +29,7 @@ namespace Profitbase.Wrapper
             var houses = await projectsRequest.Execute(apiData);
             for (int i = 0; i < houses.Count; i++)
             {
-
+                houses[i].Blocks = await new BlocksRequest(_client).Execute(apiData, houses[i].Id);
             }
             return;
             

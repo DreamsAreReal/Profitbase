@@ -9,7 +9,7 @@ namespace Profitbase.Data
         public static IEnumerable<ProfitbaseSection> GetAll()
         {
             Api api = new Api();
-            api.GetAllAsync("", "").Wait();
+            api.GetAllAsync("", "");
             return new List<ProfitbaseSection>();
         }
     }
