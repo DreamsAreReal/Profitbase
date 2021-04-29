@@ -7,7 +7,7 @@ using Profitbase.Wrapper.Enums;
 
 namespace Profitbase.Wrapper.Models
 {
-    class BlockModel
+    public class BlockModel
     {
         /// <summary>
         /// Статус помещения

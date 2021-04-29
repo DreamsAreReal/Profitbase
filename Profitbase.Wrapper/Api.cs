@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Profitbase.Wrapper.Models;
 using Profitbase.Wrapper.Requests;
 
 namespace Profitbase.Wrapper
@@ -21,7 +22,13 @@ namespace Profitbase.Wrapper
         }
 
 
-        public async Task GetAllAsync(string login, string password)
+        /// <summary>
+        /// Get all sections and blocks from user
+        /// </summary>
+        /// <param name="login">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>All sections and blocks from user</returns>
+        public async Task<List<SectionModel>> GetAllAsync(string login, string password)
         {
             AuthorizationRequest authorization = new AuthorizationRequest(_client);
             var apiData = await authorization.Execute(login,password);
@@ -31,7 +38,7 @@ namespace Profitbase.Wrapper
             {
                 houses[i].Blocks = await new BlocksRequest(_client).Execute(apiData, houses[i].Id);
             }
-            return;
+            return houses;
             
         }
 

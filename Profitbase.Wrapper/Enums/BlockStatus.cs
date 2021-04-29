@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Profitbase.Wrapper.Enums
 {
-    enum BlockStatus
+    public enum BlockStatus
     {   
         SOLD,
         BOOKED,

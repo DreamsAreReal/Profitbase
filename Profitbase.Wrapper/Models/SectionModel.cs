@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Profitbase.Wrapper.Models
 {
-    class SectionModel
+    public class SectionModel
     {
         public string Id { get; set; }
         public string Name { get; set; }

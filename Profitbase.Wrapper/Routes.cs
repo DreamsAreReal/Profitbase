@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Profitbase.Wrapper
 {
+    /// <summary>
+    /// Need to storage routes on site
+    /// </summary>
     internal class Routes
     {
         public const string SubDomain = "pb12307";

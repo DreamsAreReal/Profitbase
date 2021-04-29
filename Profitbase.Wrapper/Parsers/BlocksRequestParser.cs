@@ -12,6 +12,12 @@ namespace Profitbase.Wrapper.Parsers
 {
     class BlocksRequestParser
     {
+
+        /// <summary>
+        /// Returns blocks in section
+        /// </summary>
+        /// <param name="json">Answer from block request</param>
+        /// <returns>Block models</returns>
         public List<BlockModel> GetBlocks(string json)
         {
             if (string.IsNullOrEmpty(json))

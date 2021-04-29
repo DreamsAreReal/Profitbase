@@ -11,6 +11,12 @@ namespace Profitbase.Wrapper.Parsers
 {
     class ProjectsRequestParser
     {
+
+        /// <summary>
+        /// Get sections
+        /// </summary>
+        /// <param name="json">Answer from project request</param>
+        /// <returns>Sections</returns>
         public List<SectionModel> GetHouses(string json)
         {
             if(string.IsNullOrEmpty(json))
